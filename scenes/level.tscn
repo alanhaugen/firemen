@@ -70,3 +70,5 @@ shape = SubResource("RectangleShape2D_2y2qk")
 [node name="Civilian" parent="." instance=ExtResource("6_k6j6m")]
 position = Vector2(99, 466)
 rotation = 1.15461
+
+[node name="Timer" type="Timer" parent="."]
