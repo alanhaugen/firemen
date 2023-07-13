@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3u5qib0m78lt"]
+
+[ext_resource type="Texture2D" uid="uid://uqgisu3fujqw" path="res://assets/bg.png" id="1_fl5rk"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_qdoln"]
+[ext_resource type="Texture2D" uid="uid://dr102stmqexmo" path="res://assets/bgmask.png" id="2_4oc8r"]
+[ext_resource type="Texture2D" uid="uid://5clm2y3c5fkr" path="res://assets/grass.png" id="3_eugvl"]
+[ext_resource type="PackedScene" uid="uid://dog6p6el8d418" path="res://scenes/player.tscn" id="5_h8ao0"]
+[ext_resource type="PackedScene" uid="uid://de0g61t2llli8" path="res://scenes/civilian.tscn" id="6_k6j6m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2y2qk"]
+size = Vector2(565, 28)
+
+[node name="level" type="Node2D"]
+script = ExtResource("1_qdoln")
+
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(271, 600)
+texture = ExtResource("1_fl5rk")
+
+[node name="Bgmask" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(271, 600)
+texture = ExtResource("2_4oc8r")
+
+[node name="Grass" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(57, 1183)
+texture = ExtResource("3_eugvl")
+
+[node name="Grass2" type="Sprite2D" parent="Grass"]
+z_index = 10
+position = Vector2(250, 0)
+rotation = 3.14159
+scale = Vector2(0.960001, -1)
+texture = ExtResource("3_eugvl")
+
+[node name="Grass3" type="Sprite2D" parent="Grass"]
+z_index = 10
+position = Vector2(500, 0)
+texture = ExtResource("3_eugvl")
+
+[node name="Player" parent="." instance=ExtResource("5_h8ao0")]
+position = Vector2(246, 1197)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(49, 1199)
+scale = Vector2(3.16, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(232.5, 4)
+shape = SubResource("RectangleShape2D_2y2qk")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-84, 696)
+scale = Vector2(0.0799978, 30.56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(232.5, 4)
+shape = SubResource("RectangleShape2D_2y2qk")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(576, 694)
+scale = Vector2(0.0799978, 30.56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(232.5, 4)
+shape = SubResource("RectangleShape2D_2y2qk")
+
+[node name="Civilian" parent="." instance=ExtResource("6_k6j6m")]
+position = Vector2(99, 466)
+rotation = 1.15461
